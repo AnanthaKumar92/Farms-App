@@ -1,6 +1,6 @@
 //index.html
 $(document).ready(function(){
-        var toppos=($(window).height()/2) - ($("#alertdiv").height()/2);
+        var toppos=($(window).height()/3.5) - ($("#alertdiv").height()/3.5);
         var leftpos=($(window).width()/2) - ($("#alertdiv").width()/2);
         $("#alertdiv").css("top", toppos).css("left",leftpos);
       });
