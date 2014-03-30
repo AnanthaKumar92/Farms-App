@@ -1,7 +1,10 @@
 body {
     font-family: Helvetica, Arial, sans-serif; /*{global-font-family}*/
 }
-
+input {
+  text-align: center;
+  /*margin-left: 15px;*/
+}
 
 
 
@@ -120,4 +123,14 @@ margin-right: 10px;
     padding-left: 10px;
     font-family: Helvetica, Arial, sans-serif; /*{global-font-family}*/
     font-weight:bold;
+}
+
+.drop {
+  text-align: center;
+}
+.bootstrap-touchspin-down{
+  margin-left: -8px;
+}
+.bootstrap-touchspin-up{
+  margin-right: -8px;
 }
