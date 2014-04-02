@@ -6,128 +6,7 @@ $(document).ready(function(){
         // setTimeout("ind()",100);
         //SearchText();
      var token = window.localStorage.getItem('login_token');
-
- 
-  // GET Farms
-    $.ajax({
-      type: "GET",
-      url: 'http://localhost:3000/farms.json?user_credentials='+token,
-      dataType: "json",
-      cache: false,
-      success: function(data) {        
-        console.log(data)
-        list  = []
-        $.each(data, function(x, v) {
-            list.push("<li><a href='#' data-id="+v.id+">"+v.name+"</a></li>")
-        });        
-        $('#admin_farms').append(list);
-        $('#admin_farms').listview('refresh');
-        get_locations();
-         get_barns();
-        return false;
-      },
-      error: function(data,status){
-        alert('Error in connection. Check your internet')
-      },
-
-      complete: function(data){
-        // alert('completed')
-      },
-
-      denied: function(data){
-        alert('Access denied')
-      }
-    });
-       
-  // GET Sites
- 
-
-    
 });
-
-function get_locations(){
-  var token = window.localStorage.getItem('login_token');
-
-  $("#admin_farms li a").on('click', function(){      
-     $('#farm_locations').empty();
-    var id = $(this).data('id');
-      $.ajax({
-        type: "GET",
-        url: 'http://localhost:3000/farms/'+id+'/locations.json?user_credentials='+token,
-        dataType: "json",
-        cache: false,
-        success: function(data) {        
-          console.log(data)
-          
-          list  = []
-          $.each(data, function(x, v) {
-              list.push("<div data-role='collapsible' class='location_list' data-id="+v.id+" data-collapsed='true' data-theme='a'><h3>"+v.name+"</h3>")
-          });        
-
-          $('#farm_locations').append(list);         
-          window.location ="#demo-page2"
-          get_barns();
-          $('[data-role=collapsible-set]').collapsibleset().trigger('create');
-
-          // $('#admin_farms').listview('refresh');
-
-          return false;
-        },
-        error: function(data,status){
-          alert('Error in connection. Check your internet')
-        },
-
-        complete: function(data){
-          // alert('completed')
-        },
-
-        denied: function(data){
-          alert('Access denied')
-        }
-      });
-   });
-}
-
-function get_barns(){
-
-  var token = window.localStorage.getItem('login_token');
-  
-  $(".location_list h3").on('click', function(){   
-      $(".location_list h3 ul").empty();
-        var $this = $(this),
-        id = $(this).parent().data('id');
-
-      $.ajax({
-        type: "GET",
-        url: 'http://localhost:3000/locations/'+id+'/barns.json?user_credentials='+token,
-        dataType: "json",
-        cache: false,
-        success: function(data) {                            
-          list  = []
-          $.each(data, function(x, v) {
-              list.push("<ul data-role='listview'><li><a href='#' data-id="+v.id+">"+v.name+"</a></li></ul>")
-          });        
-          $this.append(list);          
-          $('[data-role=collapsible]').collapsibleset().trigger('create');
-          return false;
-        },
-        error: function(data,status){
-          alert('Error in connection. Check your internet')
-        },
-
-        complete: function(data){
-          // alert('completed')
-        },
-
-        denied: function(data){
-          alert('Access denied')
-        }
-      });
-   });
-}
-
-
-
 //home.html
 
 
@@ -141,47 +20,49 @@ function user_logout() {
 }
 
 //Inventory.html
-function check_treat(){
-    if($('#treatment').val()=="Yes")
-        window.location ='#demo-page4'
-    else
-       window.location ='#demo-page7' 
-       //location.reload();
-}
 function check_pig_death(){
-    if($('#death').val()=="Yes"){
-         window.location ='#demo-page2'
-         }
-    else{
+  if($('#radio-choice-1').is(':checked')) { 
+    //alert();
+    window.location ='#demo-page2'
+   }
+   else{
         window.location ='#demo-page3'
-        }
-         
-       
+        }    
+    // if($('#death').val()=="Yes"){
+    //      window.location ='#demo-page2'
+    //      }
+    // 
+    //else{
+    //     window.location ='#demo-page3'
+    //     }      
 }
+function check_treat(){
+  if($('#radio-choiceb-1').is(':checked')) { 
+    //alert();
+    window.location ='#demo-page4'
+   }
+   else{
+        window.location ='#demo-page7'
+        }    
+//     if($('#treatment').val()=="Yes")
+//         window.location ='#demo-page4'
+//     else
+//        window.location ='#demo-page7' 
+//        //location.reload();
+ }
+
 function demopage3(){
   window.location ='#demo-page3'
   //location.reload();
 }
 function demopage5(){
-  window.location ='#demo-page5'
+  history.back();
+  //window.location ='#demo-page5'
   //location.reload();
 }
 function back(){
-  window.location ='#demo-page1'
-  //history.back();
-}
-function back2(){   
- history.back();
-}
-function back3(){
+  //window.location ='#demo-page1'
   history.back();
-  //location.reload();
-  
-}
-function back4(){
-  history.back();
-  //location.reload();
-  
 }
 /*function reason(){
 
@@ -247,28 +128,45 @@ function treat(){
   var a = $('#report_number_of_pigs_treated').val();
   //alert(a);
   $( "#medicine" ).empty();
+  $( "#dosage" ).empty();
+  $( "#adminis" ).empty();
   var j=2;
   for (i = 0; i < a-1; i++) {
-    
-  var head ="Details of Pig" + j;
-  var m = "Name of medicine given for Pig" + j;
-  var am = "Dosage Amount given for Pig" + j;
-  var h ="How Adminstered for Pig" + j;
-  //var t = $('<label>'+ l +'</label>');
-  //alert(label);
-  var s = $('<br>'+ head +'</br><br></br>' + m + '<br></br><input type="text" /><br></br>'+ am + '<br></br><input type="text" /><br></br>'+ h + '<br></br><input type="text" /><br></br>');
-  s.appendTo('#medicine');
-  $('[type="text"]').textinput();   
+  var m1 = "Name of medicine given for pig" + j;
+  var m2 = $('<p>'+ m1 + '</p><input type="text" /><br></br>');
+  m2.appendTo('#medicine');
+  $('[type="text"]').textinput(); 
+  //$('#treat_list').listview().listview('refresh');  
   //$("#medicine").trigger('create');
   j= j+1;
   }
-  $( "#dosage" ).empty();
+}
+function demo5(){
+   $( "#dosage" ).empty();
+  var j=2;
+  var a = $('#report_number_of_pigs_treated').val();
   for (i = 0; i < a-1; i++) {
-  $('#dosage_amount').clone().appendTo('#dosage');
+  var d1 = "Dosage Amount for pig" + j;
+  var d2 = $('<p>'+ d1 + '</p><input type="text" /><br></br>');
+  d2.appendTo('#dosage');
+  $('[type="text"]').textinput();
+  //$('#dosage_list').listview().listview('refresh');  
+  j= j+1;
   }
+  $('#index').trigger('create');
+}
+function demo6(){
   $( "#adminis" ).empty();
+  var j=2;
+  var a = $('#report_number_of_pigs_treated').val();
+  //alert(a);
   for (i = 0; i < a-1; i++) {
-  $('#adminstered').clone().appendTo('#adminis');
+    var h1 ="How Adminstered for Pig" + j;
+    var h2 = $('<p>'+ h1 + '</p><input type="text" /><br></br>');
+    h2.appendTo('#adminis');
+    $('[type="text"]').textinput();
+    //$('#admins_list').listview().listview('refresh');  
+    j= j+1;
   }
 }
 

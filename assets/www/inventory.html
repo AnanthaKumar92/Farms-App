@@ -47,11 +47,18 @@
                 
                 <li data-role="fieldcontain">
                   <fieldset data-role="controlgroup">
-                    <label for="death">Is There any pig Death</label>
-                    <select name="death" id="death" data-role="slider">
+                  <label for="death">Any pig Death?</label>
+                      <input type="radio" name="radio-choice" id="radio-choice-1" value="yes" checked="checked" />
+                      <label for="radio-choice-1">Yes</label>
+
+                      <input type="radio" name="radio-choice" id="radio-choice-2" value="no"  />
+                      <label for="radio-choice-2">No</label>
+
+                    
+                    <!-- <select name="death" id="death" data-role="slider">
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
-                    </select> 
+                    </select>  -->
                   </fieldset>
                 </li>
                </fieldset>
@@ -128,19 +135,26 @@
               <ul data-role="listview" data-inset="true">
                 <li data-role="fieldcontain">
                   <label for="report_running_inventory">Running Inventory</label></br>
-                  <input id="report_running_inventory" name="report[running_inventory]" >
+                  <input id="report_running_inventory" name="report[running_inventory]" value="100" readonly="true" >
                 </li>
                  <li data-role="fieldcontain">
-                  
-                    <label for="treatment">Is There any pigs Treated</label>
+                  <fieldset data-role="controlgroup">
+                  <label for="treatment">Any pigs Treated?</label>
+                      <input type="radio" name="radio-choice" id="radio-choiceb-1" value="yes" />
+                      <label for="radio-choiceb-1">Yes</label>
+
+                      <input type="radio" name="radio-choice" id="radio-choiceb-2" value="no" checked="checked" />
+                      <label for="radio-choiceb-2">No</label>
+                  </fieldset>
+                    <!-- <label for="treatment">Is There any pigs Treated</label>
                     <select name="treatment" id="treatment" data-role="slider">
                       <option value="No">No</option>
                       <option value="Yes">Yes</option>
-                    </select>
+                    </select> -->
                 </li>
               </ul>
               <ul data-role="listview"data-icon="false" data-filter="false" class='showastabs' >
-                <li class="back"><a href="#" onclick="back2()" data-transition="slide"><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</span></a></li>
+                <li class="back"><a href="#" onclick="back()" data-transition="slide"><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</span></a></li>
                 <li class="next"><a href="#" id="navpage45" data-transition="slide" onclick="check_treat()"><i class='icon-chevron-right'></i><span class="nexttxtalign">NEXT</span></a></li>
                 </ul>
             </div>
@@ -160,13 +174,18 @@
               <h1>New Inventory</h1>
             </div><!-- /header --> 
             <div role="main" class="ui-content">
-              <ul data-role="listview" data-inset="true" >
+              <ul data-role="listview" data-inset="true" id="treat_list" >
                 
-                  <li data-role="fieldcontain">
-                    <label for="report_number_of_pigs_treated">Number of Pigs Treated </label></br>
-                    <input class="form-control"id="report_number_of_pigs_treated" name="report[number_of_pigs_treated]" type="number" onchange="treat()">
-                  </li>
-                  <li data-role="fieldcontain">
+                <li data-role="fieldcontain">
+                  <label for="report_number_of_pigs_treated">Number of Pigs Treated </label></br>
+                  <input class="form-control"id="report_number_of_pigs_treated" name="report[number_of_pigs_treated]" type="number" onchange="treat()">
+                </li>
+                <li data-role="fieldcontain" id="medicine_given">
+                  <label for="report_name_of_product_given">Name of Medicine given for pig 1</label></br>
+                  <input class="form-control" id="report_name_of_product_given" name="report[name_of_product_given]" type="text" />
+                </li>
+
+                  <!--<li data-role="fieldcontain">
                   <legend id="details1">Details of Pig 1</legend>
                   <div id="pig">
                   <fieldset>
@@ -186,14 +205,14 @@
                   </fieldset>
                   </div>
                   </li>
-                  <li data-role="fieldcontain" id="medicinel"></li>
+                  <li data-role="fieldcontain" id="medicinel"></li>-->
                   <li data-role="fieldcontain" id="medicine"> 
                   </li>
                 
               </ul>
               <ul data-role="listview"data-icon="false" data-filter="false"class='showastabs'>
-                <li class="back"><a href="#" onclick="back()3" data-transition="slide"><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</span></a></li>
-                <li class="next"><a href="#demo-page7" data-transition="slide"><i class='icon-chevron-right'></i><span class="nexttxtalign">NEXT</span></a></li>
+                <li class="back"><a href="#" onclick="back()" data-transition="slide"><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</span></a></li>
+                <li class="next"><a href="#demo-page5" data-transition="slide" onclick="demo5()"><i class='icon-chevron-right'></i><span class="nexttxtalign">NEXT</span></a></li>
               </ul>  
             </div>
             <div data-role="panel" data-transition="slide"  id="left-panel">
@@ -206,24 +225,24 @@
               </ul>
              </div>
           </div>
-          <!--<div data-role="page" id="demo-page5" data-url="demo-page5" > 
+          <div data-role="page" id="demo-page5" data-url="demo-page5" > 
             <div data-role="header" id="heading" class="topheader">
               <a href="#left-panel"><i class='icon-reorder'></i></a>
               <h1>New Inventory</h1>
             </div> 
             <div role="main" class="ui-content">
-              <ul data-role="listview" data-inset="true">
+              <ul data-role="listview" data-inset="true" id="dosage_list">
                 <fieldset>
                   <li data-role="fieldcontain" id="dosage_amount">
-                    <label for="report_amount_given">Dosage Amount</label></br>
+                    <label for="report_amount_given">Dosage Amount for pig 1</label></br>
                     <input class="form-control" id="report_amount_given" name="report[amount_given]" />
                   </li>
                    <li data-role="fieldcontain" id="dosage"> 
                   </li>
               </ul>
               <ul data-role="listview"data-icon="false" data-filter="false"class='showastabs'>
-                <li class="back"><a href="#demo-page1" data-transition="slide"><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</span></a></li>
-                <li class="next"><a href="#demo-page6" data-transition="slide"><i class='icon-chevron-right'></i><span class="nexttxtalign">NEXT</span></a></li>
+                <li class="back"><a href="#" data-transition="slide" onclick="back()" ><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</span></a></li>
+                <li class="next"><a href="#demo-page6" data-transition="slide" onclick="demo6()"><i class='icon-chevron-right'></i><span class="nexttxtalign">NEXT</span></a></li>
               </ul>  
             </div>
             <div data-role="panel" data-transition="slide"  id="left-panel">
@@ -242,10 +261,10 @@
               <h1>New Inventory</h1>
             </div> 
             <div role="main" class="ui-content">
-              <ul data-role="listview" data-inset="true">
+              <ul data-role="listview" data-inset="true" id="admins_list">
                 <fieldset>
                   <li data-role="fieldcontain" id="adminstered">
-                    <label for="report_route_of_admin">How Administered</label></br>
+                    <label for="report_route_of_admin">How Administered for pig 1</label></br>
                     <input class="form-control" id="report_route_of_admin" name="report[route_of_admin]" type="text" />
                   </li>
                   <li data-role="fieldcontain" id="adminis"> 
@@ -253,7 +272,7 @@
                 </fieldset>
               </ul>
               <ul data-role="listview"data-icon="false" data-filter="false"class='showastabs'>
-                <li class="back"><a href="#demo-page1" data-transition="slide"><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</span></a></li>
+                <li class="back"><a href="#" data-transition="slide" onclick="back()" ><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</span></a></li>
                 <li class="next"><a href="#demo-page7" data-transition="slide"><i class='icon-chevron-right'></i><span class="nexttxtalign">NEXT</span></a></li>
               </ul>  
             </div>
@@ -266,7 +285,7 @@
                 <li><a href="#" data-ajoutax='false' data-transition="slide"  onclick="user_logout();" rel="external"><i class='icon-signout'></i> Logout</a></li>
               </ul>
              </div>
-          </div>--> 
+          </div> 
           <div data-role="page" id="demo-page7" data-url="demo-page7"> 
             <div data-role="header" id="heading" class="topheader">
               <a href="#left-panel" data-transition="slide"><i class='icon-reorder'></i></a>
@@ -285,7 +304,7 @@
                 </button>
               </ul>
               <ul data-role="listview"data-icon="false" data-filter="false"class='showastabs'>
-                <li class="back"><a href="#" onclick="back4()" data-transition="slide"><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</a></li>
+                <li class="back"><a href="#" onclick="back()" data-transition="slide"><i class='icon-chevron-left'></i><span class="nexttxtalign">PREVIOUS</a></li>
               </ul>
             </div>
             <div data-role="panel" data-transition="slide"  id="left-panel">
@@ -299,7 +318,7 @@
              </div>
           </div>
         </form>   
-    <script type="text/javascript" src="cordova.js"></script>
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/jquery.mobile-1.3.2.min.js"></script>
     <script src="js/nativedroid.script.js"></script>
