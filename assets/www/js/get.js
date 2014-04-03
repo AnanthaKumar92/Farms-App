@@ -5,7 +5,7 @@ $(document).ready(function(){
   // GET Farms
     $.ajax({
       type: "GET",
-      url: 'http://farms.herokuapp.com/farms.json?user_credentials='+token,
+      url: 'http://farmcentral.softimum.com/farms.json?user_credentials='+token,
       dataType: "json",
       cache: false,
       success: function(data) {        
@@ -47,7 +47,7 @@ function get_locations(){
     var id = $(this).data('id');
       $.ajax({
         type: "GET",
-        url: 'http://farms.herokuapp.com/farms/'+id+'/locations.json?user_credentials='+token,
+        url: 'http://farmcentral.softimum.com/farms/'+id+'/locations.json?user_credentials='+token,
         dataType: "json",
         cache: false,
         success: function(data) {        
@@ -93,7 +93,7 @@ function get_barns(){
 
       $.ajax({
         type: "GET",
-        url: 'http://farms.herokuapp.com/locations/'+id+'/barns.json?user_credentials='+token,
+        url: 'http://farmcentral.softimum.com/locations/'+id+'/barns.json?user_credentials='+token,
         dataType: "json",
         cache: false,
         success: function(data) {                            
