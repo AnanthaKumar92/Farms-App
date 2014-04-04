@@ -2,7 +2,7 @@ body {
     font-family: Helvetica, Arial, sans-serif; /*{global-font-family}*/
 }
 input {
-  text-align: center;
+  /*text-align: center;*/
   /*margin-left: 15px;*/
 }
 
@@ -134,3 +134,21 @@ margin-right: 10px;
 .bootstrap-touchspin-up{
   margin-right: -8px;
 }
+.detail_db{
+  background-color: #C3C3C3;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.span_db{
+  font-size: 15px;
+}
+/*#tempbox{ 
+  font-size: 40px;
+  color: white;
+  text-align: right;
+  float: right;
+  width: 100%;
+  margin-top: -45px;
+  margin-right: 10px;
+}*/

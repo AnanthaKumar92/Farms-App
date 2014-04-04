@@ -16,6 +16,15 @@ $(document).ready(function(){
 function user_logout() {
         window.localStorage.removeItem('login_token');
         window.localStorage.removeItem('location');
+
+        window.localStorage.removeItem('id');
+        window.localStorage.removeItem('role');
+        window.localStorage.removeItem('email');
+        window.localStorage.removeItem('first_name');
+        window.localStorage.removeItem('last_name');
+        window.localStorage.removeItem('farm');
+        window.localStorage.removeItem('username');
+        window.localStorage.removeItem('barn_id');
         window.location ='index.html'
 }
 
@@ -281,15 +290,12 @@ $(function() {
       return false  
   });
 });
- // function ind() {
- //  //alert("ddd");
- //      $("input[type='number']").TouchSpin({
- //            min: 1,
- //            max: 1000000000,
- //            step: 1,
- //            stepinterval: 50,
- //            maxboostedstep: 10000000,
- //            initval: 1
- //            //prefix: '%'
- //        });
- //  }
+function db(){
+  var role = window.localStorage.getItem('role');
+  if(role == "SiteManager"){
+    window.location="main_dashboard.html#demo-page2"
+  }
+  else{
+    window.location ="main_dashboard.html"  
+  }
+}

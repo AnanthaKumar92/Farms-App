@@ -18,7 +18,7 @@
       <div data-role="page" id="demo-page1" data-url="demo-page1" >
         <div data-role="header" id="heading" class="topheader">
           <a href="#left-panel"><i class='icon-reorder'></i></a>
-          <h1>New Inventory</h1>
+          <h1>Daily Inventory</h1>
         </div><!-- /header -->
       
         <div role="main" class="ui-content">
@@ -43,11 +43,11 @@
                 </li>
                 
                   <label for="date">Date</label>
-                  <input id="report_date" name="report[date]" type="date">
+                  <input id="report_date" name="report[date]" type="date" >
                 
                 <li data-role="fieldcontain">
                   <fieldset data-role="controlgroup">
-                  <label for="death">Any pig Death?</label>
+                  <label for="death">Any pig Deaths?</label>
                       <input type="radio" name="radio-choice" id="radio-choice-1" value="yes" checked="checked" />
                       <label for="radio-choice-1">Yes</label>
 
@@ -71,7 +71,7 @@
             <div data-role="panel" data-transition="slide" id="left-panel" >
               <ul data-role='listview'>
                 <li data-role="list-divider" id="heading_menu">Menu</li>
-                <li><a href="home.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
+                <li><a href="#" data-transition="slide" onclick="db()" data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
                 <li><a href="inventory.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Inventory</a></li>
                 <li><a href="shipments.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Shipment</a></li>
                 <li><a href="#" data-ajoutax='false' data-transition="slide"  onclick="user_logout();" rel="external"><i class='icon-signout'></i> Logout</a></li>
@@ -81,14 +81,14 @@
           <div data-role="page" id="demo-page2" data-url="demo-page2" >
             <div data-role="header" id="heading" class="topheader" >
               <a href="#left-panel"><i class='icon-reorder'></i></a>
-              <h1>New Inventory</h1>
+              <h1>Daily Inventory</h1>
             </div><!-- /header -->
             <div role="main" class="ui-content">
              <ul data-role="listview" data-inset="true">
               <fieldset>
                 <li data-role="fieldcontain">
                   <label for="report_number_of_pig_deaths">Number of Pigs Death</label></br>
-                  <input  id="report_number_of_pig_deaths" name="report[number_of_pig_deaths]" type="number" onchange="reason()">
+                  <input  id="report_number_of_pig_deaths" name="report[number_of_pig_deaths]" type="number" onchange="reason()" value="1">
                 </li>
             <label for="report_death" id="causeof" class="select">Cause Of Death for Pig 1</label></br>
                 <li data-role="fieldcontain" id="cause">
@@ -119,7 +119,7 @@
             <div data-role="panel" data-transition="slide"  id="left-panel">
               <ul data-role='listview'>
                 <li data-role="list-divider" id="heading_menu">Menu</li>
-                <li><a href="home.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
+                <li><a href="#" data-transition="slide" onclick="db()" data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
                 <li><a href="inventory.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Inventory</a></li>
                 <li><a href="shipments.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Shipment</a></li>
                 <li><a href="#" data-ajoutax='false' data-transition="slide"  onclick="user_logout();" rel="external"><i class='icon-signout'></i> Logout</a></li>
@@ -129,7 +129,7 @@
           <div data-role="page" id="demo-page3" data-url="demo-page3">
             <div data-role="header" id="heading" class="topheader">
               <a href="#left-panel"><i class='icon-reorder'></i></a>
-              <h1>New Inventory</h1>
+              <h1>Daily Inventory</h1>
             </div><!-- /header -->
             <div role="main" class="ui-content">
               <ul data-role="listview" data-inset="true">
@@ -161,7 +161,7 @@
             <div data-role="panel" data-transition="slide"  id="left-panel">
               <ul data-role='listview'>
                 <li data-role="list-divider" id="heading_menu">Menu</li>
-                <li><a href="home.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
+                <li><a href="#" data-transition="slide" onclick="db()" data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
                 <li><a href="inventory.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Inventory</a></li>
                 <li><a href="shipments.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Shipment</a></li>
                 <li><a href="#" data-ajoutax='false' data-transition="slide"  onclick="user_logout();" rel="external"><i class='icon-signout'></i> Logout</a></li>
@@ -171,14 +171,14 @@
           <div data-role="page" id="demo-page4" data-url="demo-page4" > 
             <div data-role="header" id="heading" class="topheader">
               <a href="#left-panel"><i class='icon-reorder'></i></a>
-              <h1>New Inventory</h1>
+              <h1>Daily Inventory</h1>
             </div><!-- /header --> 
             <div role="main" class="ui-content">
               <ul data-role="listview" data-inset="true" id="treat_list" >
                 
                 <li data-role="fieldcontain">
                   <label for="report_number_of_pigs_treated">Number of Pigs Treated </label></br>
-                  <input class="form-control"id="report_number_of_pigs_treated" name="report[number_of_pigs_treated]" type="number" onchange="treat()">
+                  <input class="form-control"id="report_number_of_pigs_treated" name="report[number_of_pigs_treated]" type="number" onchange="treat()" value="1">
                 </li>
                 <li data-role="fieldcontain" id="medicine_given">
                   <label for="report_name_of_product_given">Name of Medicine given for pig 1</label></br>
@@ -218,7 +218,7 @@
             <div data-role="panel" data-transition="slide"  id="left-panel">
               <ul data-role='listview'>
                 <li data-role="list-divider" id="heading_menu">Menu</li>
-                <li><a href="home.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
+                <li><a href="#" data-transition="slide" onclick="db()" data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
                 <li><a href="inventory.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Inventory</a></li>
                 <li><a href="shipments.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Shipment</a></li>
                 <li><a href="#" data-ajoutax='false' data-transition="slide"  onclick="user_logout();" rel="external"><i class='icon-signout'></i> Logout</a></li>
@@ -228,7 +228,7 @@
           <div data-role="page" id="demo-page5" data-url="demo-page5" > 
             <div data-role="header" id="heading" class="topheader">
               <a href="#left-panel"><i class='icon-reorder'></i></a>
-              <h1>New Inventory</h1>
+              <h1>Daily Inventory</h1>
             </div> 
             <div role="main" class="ui-content">
               <ul data-role="listview" data-inset="true" id="dosage_list">
@@ -248,7 +248,7 @@
             <div data-role="panel" data-transition="slide"  id="left-panel">
               <ul data-role='listview'>
                 <li data-role="list-divider" id="heading_menu">Menu</li>
-                <li><a href="home.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
+                <li><a href="#" data-transition="slide" onclick="db()" data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
                 <li><a href="inventory.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Inventory</a></li>
                 <li><a href="shipments.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Shipment</a></li>
                 <li><a href="#" data-ajoutax='false' data-transition="slide"  onclick="user_logout();" rel="external"><i class='icon-signout'></i> Logout</a></li>
@@ -258,7 +258,7 @@
           <div data-role="page" id="demo-page6" data-url="demo-page6" > 
             <div data-role="header" id="heading" class="topheader">
               <a href="#left-panel"><i class='icon-reorder'></i></a>
-              <h1>New Inventory</h1>
+              <h1>Daily Inventory</h1>
             </div> 
             <div role="main" class="ui-content">
               <ul data-role="listview" data-inset="true" id="admins_list">
@@ -279,7 +279,7 @@
             <div data-role="panel" data-transition="slide"  id="left-panel">
               <ul data-role='listview'>
                 <li data-role="list-divider" id="heading_menu">Menu</li>
-                <li><a href="home.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
+                <li><a href="#" data-transition="slide" onclick="db()" data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
                 <li><a href="inventory.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Inventory</a></li>
                 <li><a href="shipments.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Shipment</a></li>
                 <li><a href="#" data-ajoutax='false' data-transition="slide"  onclick="user_logout();" rel="external"><i class='icon-signout'></i> Logout</a></li>
@@ -289,7 +289,7 @@
           <div data-role="page" id="demo-page7" data-url="demo-page7"> 
             <div data-role="header" id="heading" class="topheader">
               <a href="#left-panel" data-transition="slide"><i class='icon-reorder'></i></a>
-              <h1>New Inventory</h1>
+              <h1>Daily Inventory</h1>
             </div>
             <div role="main" class="ui-content">
               <ul data-role="listview" data-inset="true">
@@ -310,7 +310,7 @@
             <div data-role="panel" data-transition="slide"  id="left-panel">
               <ul data-role='listview'>
                 <li data-role="list-divider" id="heading_menu">Menu</li>
-                <li><a href="home.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
+                <li><a href="#" data-transition="slide" onclick="db()" data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
                 <li><a href="inventory.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Inventory</a></li>
                 <li><a href="shipments.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Shipment</a></li>
                 <li><a href="#" data-ajoutax='false' data-transition="slide"  onclick="user_logout();" rel="external"><i class='icon-signout'></i> Logout</a></li>
@@ -327,7 +327,17 @@
     <script src="js/main.js"></script>
     <script src="js/bootstrap.touchspin.js"></script>
     <script type="text/javascript">
+      $(document).on('pagebeforeshow', '#demo-page1', function(){ 
     
+        var today = new Date();   
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+
+        var yyyy = today.getFullYear();    
+
+        $('#report_date').val(dd + '-' + mm + '-' + yyyy);    
+           
+});
     </script>
    </body>
 </html>
