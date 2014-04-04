@@ -12,7 +12,7 @@
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
     
-    <preference name="orientation"                value="default" />
+   <!--  <preference name="orientation"                value="default" />
     <preference name="target-device"              value="universal" />
     <preference name="fullscreen"                 value="true" />
     <preference name="prerendered-icon"           value="true" />
@@ -24,7 +24,7 @@
     <preference name="android-minSdkVersion"      value="7" />
     <preference name="android-installLocation"    value="auto" />
 
-    <!-- Core plugins -->
+    
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.media-capture" />
@@ -44,13 +44,12 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
 
-    <!-- Third party plugins -->
-    <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
-    <!-- 
+  
+    
         <gap:plugin name="com.phonegap.plugins.barcodescanner" />
-    -->
+   
 
-    <!-- Define app icon for each platform. -->
+   
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
@@ -63,7 +62,7 @@
     <icon src="res/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
     
 
-    <!-- Define app splash screen for each platform. -->
+   
     <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
     <gap:splash src="res/screen/android/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
     <gap:splash src="res/screen/android/screen-hdpi-portrait.png"  gap:platform="android" gap:density="hdpi" />
@@ -72,7 +71,7 @@
     <gap:splash src="res/screen/ios/screen-iphone-portrait.png"    gap:platform="ios"     width="320" height="480" />
     <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
     <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
-    <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
+    <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" /> -->
    
 
 </widget>
